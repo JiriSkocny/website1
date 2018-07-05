@@ -1,0 +1,96 @@
+@import 'variables';
+@import 'mixins';
+@import './sections/learnmore';
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: $font;
+  color: $color;
+  text-align: center;
+}
+
+// FRONT PAGE
+
+header {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to bottom left, $color-gradient-first, $color-gradient-second)
+}
+
+.navigation {
+  height: 60px;
+  line-height: 60px;
+  @include clearfix;
+
+  .logo {
+    float: left;
+    width: auto;
+    font-weight: bold;
+    font-size: 1.8em;
+  }
+
+  .navigation-menu {
+    float: right;
+    width: auto;
+
+    li {
+      position: relative;
+      display: inline-block;
+      margin-right: 15px;
+      font-weight: bold;
+      font-size: 1.3em;
+
+      &:last-of-type {
+        margin: 0;
+      }
+
+      &:after {
+        position: absolute;
+        content: '';
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: $color;
+        transition: .2s ease-in;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.kicker {
+  padding: 30vh 0;
+
+  h1 {
+    font-size: 4em;
+    margin-bottom: 100px;
+    text-shadow: 5px 5px $color-gradient-second, 8px 8px black;
+  }
+}
+
+.learn-more {
+  display: inline-block;
+
+  a {
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: 3px solid $color;
+    border-radius: 20px;
+    padding: 20px 80px;
+    transition: .2s ease-in;
+
+    &:hover {
+      background: $color;
+      color: $color-gradient-first;
+    }
+  }
+}

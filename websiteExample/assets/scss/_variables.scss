@@ -1,0 +1,35 @@
+// FONTS
+
+$font: 'Montserrat', sans-serif;
+
+// COLORS
+
+$color: #fff;
+$color-2: #000;
+$color-gradient-first: #0085B6;
+$color-gradient-second: #09919C;
+
+// BASIC VARIABLES
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+// CLASSES VARIABLES
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
