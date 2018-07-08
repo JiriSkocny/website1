@@ -7,3 +7,7 @@
     clear: both;
   }
 }
+
+@mixin transition {
+  transition: .2s ease;
+}

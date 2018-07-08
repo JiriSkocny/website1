@@ -16,12 +16,14 @@ body {
 // FRONT PAGE
 
 header {
+  position: relative;
   width: 100%;
   height: 100vh;
   background: linear-gradient(to bottom left, $color-gradient-first, $color-gradient-second)
 }
 
 .navigation {
+  position: relative;
   height: 60px;
   line-height: 60px;
   @include clearfix;
@@ -63,16 +65,121 @@ header {
         width: 100%;
       }
     }
+
+    @media(max-width: 768px){
+      display: none;
+    }
+  }
+
+  #menu {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    width: 38px;
+    height: 38px;
+
+    span {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 3px;
+      background: $color;
+      @include transition;
+
+      &:nth-of-type(2){top: 8px; width: 75%;}
+      &:nth-of-type(3){top: 16px; width: 50%;}
+    }
+
+    @media(max-width: 768px){
+      display: block;
+    }
+
+    &:hover span {
+      width: 100%;
+    }
+  }
+}
+
+.overlay {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: rgba(0,0,0, .85);
+}
+
+#sidenav-menu {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 320px;
+  margin-left: -320px;
+  height: 100%;
+  background-color: darken($color-gradient-second, 10%);
+
+  li {
+    font-size: 2em;
+    margin-bottom: 1em;
+    font-weight: bold;
+    @include transition;
+
+    &:hover {
+      color: darken($color, 35%);
+    }
+  }
+
+  #close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
+
+    span {
+      position: absolute;
+      content: '';
+      width: 100%;
+      top: 50%;
+      right: 0;
+      height: 3px;
+      background: $color;
+      @include transition;
+
+      &:nth-of-type(1){transform: rotate(45deg);}
+      &:nth-of-type(2){transform: rotate(-45deg);}
+    }
+
+    &:hover span {
+      background: darken($color, 35%);
+    }
   }
 }
 
 .kicker {
-  padding: 30vh 0;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
 
   h1 {
     font-size: 4em;
     margin-bottom: 100px;
+    padding: 0 15px;
     text-shadow: 5px 5px $color-gradient-second, 8px 8px black;
+
+    @media(max-width: 550px){
+      font-size: 3em;
+    }
   }
 }
 
@@ -85,7 +192,7 @@ header {
     font-weight: bold;
     border: 3px solid $color;
     border-radius: 20px;
-    padding: 20px 80px;
+    padding: 20px 60px;
     transition: .2s ease-in;
 
     &:hover {
